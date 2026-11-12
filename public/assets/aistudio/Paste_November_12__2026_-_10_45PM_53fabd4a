@@ -1,0 +1,1202 @@
+# NEXUS OS — MASTER DEVELOPMENT PROMPT
+## Personal & Project Management Command Center
+
+**Project Name:** NEXUS OS  
+**Project Type:** Full-Stack Personal & Project Management Web Application  
+**Design Theme:** Hacker / Cyberpunk Command Center  
+**Development Environment:** Google AI Studio  
+**Frontend:** React + TypeScript  
+**Backend:** Firebase  
+**Database:** Cloud Firestore  
+**Primary Goal:** Build a unified, secure, responsive, intelligent productivity and project management platform.
+
+---
+
+# 1. YOUR ROLE & DEVELOPMENT OBJECTIVE
+
+Act as a Senior Full-Stack Software Architect, UI/UX Designer, Firebase Developer, Database Engineer, and Application Security Specialist.
+
+Your task is to design and develop a professional application named **NEXUS OS**.
+
+NEXUS OS is not a simple To-Do application. It is a centralized Personal Command Center that combines:
+
+- Personal Productivity Management
+- Task & Project Management
+- Team Responsibility Management
+- Routine & Calendar Management
+- Performance Tracking
+- Personal Development
+- Financial Management
+
+The application must have a unified architecture where all modules share the same central database.
+
+**Core Principle: Enter data once, use it everywhere.**
+
+Do not build disconnected modules. Every module must communicate with the central database and maintain consistent relationships.
+
+The final application should be scalable, maintainable, secure, and suitable for real-world daily use.
+
+# 2. UI/UX DESIGN — HACKER COMMAND CENTER
+
+Create a premium futuristic interface inspired by professional hacker dashboards, cyberpunk operating systems, and command-center interfaces.
+
+### Design System
+
+- Background: Deep Black / Charcoal.
+- Primary Color: Neon Green.
+- Secondary Color: Electric Cyan.
+- Accent: Subtle Purple where appropriate.
+- Typography: Monospace / Modern Sans-serif combination.
+- Borders: Thin glowing borders.
+- Cards: Dark translucent surfaces.
+- Buttons: Modern neon-accented buttons.
+- Animations: Subtle scanning effects, smooth transitions, and hover animations.
+- Icons: Consistent modern line icons.
+- Charts: Clean, readable, futuristic visualizations.
+
+Avoid excessive glowing effects. Maintain excellent readability and usability.
+
+### Layout
+
+**Desktop:**
+- Collapsible left sidebar.
+- Top navigation bar.
+- Main content dashboard.
+- Notification panel.
+- User profile and settings.
+
+**Mobile:**
+- Fully responsive layout.
+- Mobile-friendly navigation.
+- Responsive cards and tables.
+- Touch-friendly controls.
+- No horizontal overflow.
+
+### Visual Requirements
+
+Create a consistent design system across every module.
+
+Include:
+- Loading skeletons.
+- Empty states.
+- Confirmation dialogs.
+- Success and error messages.
+- Tooltips.
+- Search interfaces.
+- Dark-themed forms.
+- Responsive charts.
+
+The interface must look like a real, polished software product, not a basic generated admin template.
+
+# 3. AUTHENTICATION & SECURITY
+
+Use Firebase Authentication.
+
+Required features:
+
+1. Email and Password Registration.
+2. Login.
+3. Persistent Login Session.
+4. Remember Me.
+5. Forgot Password.
+6. Password Reset.
+7. Logout.
+8. Session Management.
+9. Protected Routes.
+10. Unauthorized Access Protection.
+
+Additional security:
+
+- Firestore Security Rules.
+- Role-Based Access Control.
+- User-specific data protection.
+- Server-side validation for sensitive operations.
+- Secure OAuth token management.
+- Never expose API secrets or private credentials in frontend code.
+
+Support the following user roles:
+
+| Role | Permissions |
+|---|---|
+| Admin | Full system access |
+| Manager | Project and team management |
+| Member | Assigned tasks and permitted project access |
+
+For personal modules, ensure private information is accessible only to authorized users.
+
+# 4. MAIN DASHBOARD — CENTRAL CONTROL PANEL
+
+Create a comprehensive dashboard showing important information at a glance.
+
+### Dashboard Widgets
+
+**Productivity Overview**
+- Today's Tasks.
+- Completed Tasks.
+- Pending Tasks.
+- Overdue Tasks.
+- Active Projects.
+- Upcoming Deadlines.
+
+**Routine Overview**
+- Today's Routine.
+- Routine Completion Percentage.
+- Weekly Progress.
+
+**Focus Overview**
+- Today's Focus Time.
+- Number of Focus Sessions.
+- Weekly Focus Report.
+
+**Financial Overview**
+- Monthly Income.
+- Monthly Expenses.
+- Current Balance.
+- Savings Progress.
+
+**Project Overview**
+- Project Completion Percentage.
+- Active Project Timeline.
+- Team Workload.
+
+**Personal Development**
+- Vocabulary of the Day.
+- Word Meaning.
+- Example Sentence.
+
+**Notification Center**
+- Upcoming Deadlines.
+- Overdue Tasks.
+- Routine Reminders.
+- Important Events.
+
+Allow users to customize dashboard widgets and their visibility.
+
+# 5. TASK MANAGER & KANBAN BOARD
+
+Build a complete task management system.
+
+### Task Operations
+
+- Create Task.
+- Edit Task.
+- Delete Task.
+- View Task Details.
+- Duplicate Task.
+- Assign Task.
+- Add Description.
+- Set Start Date.
+- Set Deadline.
+- Set Priority.
+- Add Attachments.
+- Add Comments.
+- Track Task History.
+
+### Task Status
+
+Use these statuses:
+
+1. To Do
+2. In Progress
+3. Pending
+4. Completed
+5. Cancelled
+
+### Priority
+
+- Low
+- Medium
+- High
+- Critical
+
+### Kanban Board
+
+Create a drag-and-drop Kanban board with status-based columns.
+
+When a task is moved to another column, update its status in the central database immediately.
+
+Include filters for:
+- Project.
+- Priority.
+- Assigned Person.
+- Deadline.
+- Status.
+
+### Google Sheets Integration
+
+Allow users to connect a Google Spreadsheet.
+
+When a task is created, update the connected spreadsheet.
+
+When task information changes, synchronize the corresponding spreadsheet row.
+
+Requirements:
+- Unique Task ID.
+- Duplicate Prevention.
+- Update Existing Rows.
+- Sync Error Handling.
+- Sync History.
+- Manual Retry.
+
+Firestore remains the primary database. Google Sheets is an external synchronized copy, not the main source of truth.
+
+# 6. TO-DO LIST & GOOGLE CALENDAR
+
+Create a dedicated To-Do module.
+
+### To-Do Features
+
+- Today's Tasks.
+- Upcoming Tasks.
+- Completed Tasks.
+- Pending Tasks.
+- Priority-Based Tasks.
+- Quick Task Creation.
+- Task Reminders.
+- Deadline Alerts.
+
+Tasks created here must also appear in the Task Manager.
+
+### Google Calendar Integration
+
+Use Google Calendar API with secure OAuth 2.0 authorization.
+
+Features:
+- Create Calendar Events.
+- Edit Events.
+- Delete Events.
+- Sync Events from Google Calendar.
+- Update Events from NEXUS OS.
+- Deadline Notifications.
+- Event Reminders.
+
+Provide:
+- Daily View.
+- Weekly View.
+- Monthly View.
+
+Implement reliable synchronization without creating duplicate events.
+
+Maintain the relationship between internal Task IDs and external Calendar Event IDs.
+
+# 7. ROUTINE MANAGEMENT SYSTEM
+
+Create a personal routine planner.
+
+### Three Views
+
+**Daily View**
+- Daily activities.
+- Time-based routine.
+- Completion tracking.
+
+**Weekly View**
+- Weekly schedule.
+- Recurring activities.
+- Weekly progress.
+
+**Monthly View**
+- Monthly routine overview.
+- Long-term goals.
+- Monthly completion report.
+
+### Features
+
+- Create Custom Routine.
+- Edit Routine.
+- Delete Routine.
+- Recurring Routine.
+- Daily / Weekly / Monthly Generation.
+- Mark as Completed.
+- Completion Percentage.
+- Routine History.
+- Reminder Notifications.
+- Calendar Integration.
+
+Recurring routines must be generated without creating duplicate entries.
+
+Preserve historical completion records when future routines are generated.
+
+# 8. RACI MATRIX & PROJECT RESPONSIBILITY MANAGEMENT
+
+Create a professional RACI management system.
+
+RACI represents:
+
+| Type | Meaning |
+|---|---|
+| R | Responsible |
+| A | Accountable |
+| C | Consulted |
+| I | Informed |
+
+### Project Management
+
+- Create Project.
+- Edit Project.
+- Project Description.
+- Project Start Date.
+- Project Deadline.
+- Project Status.
+- Assign Team Members.
+- Create Project Tasks.
+
+### RACI Management
+
+For each task, allow users to assign:
+
+- Responsible Person.
+- Accountable Person.
+- Consulted People.
+- Informed People.
+
+Enforce a clear responsibility structure, normally one Accountable person per task.
+
+### Additional Features
+
+- Team Workload.
+- Individual Responsibilities.
+- Project Progress.
+- Task Completion.
+- Project Reports.
+- Member-Based Filtering.
+
+All RACI information must remain connected to the central Task and Project records.
+
+# 9. KPI & PERFORMANCE METRICS
+
+Develop a performance measurement module.
+
+### Main Metrics
+
+- Total Tasks.
+- Completed Tasks.
+- Pending Tasks.
+- Overdue Tasks.
+- Active Projects.
+- Project Completion Rate.
+- Individual Performance.
+- Team Workload.
+- On-Time Completion Rate.
+
+### Reports
+
+- Daily Report.
+- Weekly Report.
+- Monthly Report.
+- Project-Based Report.
+- Individual Performance Report.
+
+### Visualizations
+
+Use interactive charts:
+
+- Bar Charts.
+- Line Charts.
+- Donut Charts.
+- Progress Indicators.
+- Performance Comparison.
+
+All KPI values must be calculated from actual database records.
+
+Avoid storing duplicate calculated values unless necessary for performance. Clearly define how each metric is calculated.
+
+# 10. GANTT CHART & PROJECT TIMELINE
+
+Build an interactive Gantt Chart.
+
+### Required Features
+
+- Project Timeline.
+- Task Start Date.
+- Task End Date.
+- Task Duration.
+- Task Dependencies.
+- Milestones.
+- Progress Percentage.
+- Deadline Tracking.
+- Delay Warning.
+- Daily Timeline.
+- Weekly Timeline.
+- Monthly Timeline.
+- Drag-and-Drop Scheduling.
+
+### RACI Integration
+
+Each Gantt task must display its assigned Responsible and Accountable persons.
+
+Example:
+
+| Task | Responsible | Accountable |
+|---|---|---|
+| Product Design | Rakib | Manager |
+| Mold Development | Engineer A | Manager |
+| Product Testing | Engineer B | QA Head |
+
+### Unified Updates
+
+When a task deadline changes in Gantt Chart:
+
+- Update Task Manager.
+- Update Calendar.
+- Update Project Timeline.
+- Update related KPI calculations.
+
+When the assigned person changes:
+
+- Update RACI.
+- Update Gantt.
+- Update Team Workload.
+
+Implement task dependency validation and prevent invalid scheduling relationships.
+
+# 11. FOCUS MODE
+
+Create a distraction-free productivity timer.
+
+### Timer Options
+
+- 25 Minutes.
+- 45 Minutes.
+- 60 Minutes.
+- Custom Duration.
+
+### Features
+
+- Start.
+- Pause.
+- Resume.
+- Reset.
+- Pomodoro Technique.
+- Break Reminder.
+- Task-Based Focus Session.
+- Daily Focus History.
+- Weekly Focus Report.
+
+Save completed focus sessions in Firestore.
+
+Include total focus time and session history.
+
+# 12. VOCABULARY LEARNING SYSTEM
+
+Build a personal English vocabulary learning module.
+
+### Word Management
+
+- Add New Word.
+- English Word.
+- Bengali Meaning.
+- Example Sentence.
+- Favourite Word.
+- Learned Status.
+- Not Learned Status.
+- Edit and Delete.
+
+### Learning Features
+
+- Random Word Display.
+- Word of the Day.
+- Vocabulary Search.
+- Favourite Words.
+- Learning History.
+- Periodic Word Rotation.
+
+Allow the dashboard to display:
+
+- English Word.
+- Bengali Meaning.
+- Example Sentence.
+
+Support configurable word rotation, with a default interval of two hours.
+
+Allow manual word refresh.
+
+# 13. PERSONAL WALLET & EXPENSE TRACKER
+
+Create a simple but professional financial management system.
+
+Maintain two separate account types:
+
+1. Personal.
+2. Business.
+
+### Income Management
+
+- Add Income.
+- Income Source.
+- Transaction Date.
+- Amount.
+- Description.
+- Monthly Income Report.
+
+### Expense Management
+
+- Add Expense.
+- Expense Category.
+- Transaction Date.
+- Amount.
+- Description.
+- Transaction History.
+
+### Budget Management
+
+- Monthly Budget.
+- Category-Based Budget.
+- Savings Tracker.
+- Budget Warning.
+- Monthly Financial Report.
+
+### Financial Dashboard
+
+Display:
+
+- Total Income.
+- Total Expenses.
+- Available Balance.
+- Savings.
+- Budget Usage.
+- Monthly Financial Trends.
+
+Provide date-based and category-based filters.
+
+Use proper currency formatting, with BDT as the default currency and configurable currency settings.
+
+Keep financial data private and separate from project management data.
+
+Do not assume that the app is connected to a bank account.
+
+# 14. GLOBAL SEARCH & NOTIFICATION CENTER
+
+These are additional essential modules.
+
+### Global Search
+
+Create a centralized search feature.
+
+Users should be able to search:
+
+- Tasks.
+- Projects.
+- Team Members.
+- Calendar Events.
+- Routines.
+- Vocabulary.
+- Financial Transactions.
+
+Provide relevant filters and clickable search results.
+
+### Notification Center
+
+Create a centralized notification system.
+
+Notification categories:
+
+- Task Deadline.
+- Overdue Task.
+- Project Update.
+- Calendar Event.
+- Routine Reminder.
+- Budget Warning.
+- Team Assignment.
+
+Features:
+
+- Read / Unread.
+- Mark All as Read.
+- Notification History.
+- Notification Preferences.
+
+Use Firebase Cloud Messaging where supported and appropriate.
+
+Avoid unnecessary repeated notifications.
+
+# 15. ACTIVITY LOG, BACKUP & RECOVERY
+
+Create an Activity Log to record important changes.
+
+Example:
+
+- Task Created.
+- Task Updated.
+- Status Changed.
+- Deadline Changed.
+- Team Member Assigned.
+- Project Updated.
+- Transaction Added.
+
+Record:
+- User ID.
+- Action Type.
+- Related Record ID.
+- Previous Value where appropriate.
+- New Value where appropriate.
+- Timestamp.
+
+### Data Recovery
+
+Implement:
+
+- Soft Delete.
+- Archive.
+- Recycle Bin.
+- Restore Deleted Records.
+- Permanent Delete with Confirmation.
+
+### Data Backup
+
+Provide:
+- Export to CSV.
+- Export to JSON.
+- Data Backup.
+- Data Restore where safely supported.
+
+Ensure backup and restore operations preserve relationships between records.
+
+# 16. CENTRAL DATABASE ARCHITECTURE
+
+This is the most important part of NEXUS OS.
+
+Use Firebase Firestore as the Single Source of Truth.
+
+All modules must read and update shared database records.
+
+### Suggested Firestore Collections
+
+```text
+users/
+  userId
+
+projects/
+  projectId
+
+tasks/
+  taskId
+
+routines/
+  routineId
+
+routineCompletions/
+  completionId
+
+calendarEvents/
+  eventId
+
+raciAssignments/
+  assignmentId
+
+focusSessions/
+  sessionId
+
+vocabulary/
+  wordId
+
+transactions/
+  transactionId
+
+budgets/
+  budgetId
+
+notifications/
+  notificationId
+
+activityLogs/
+  logId
+
+integrations/
+  integrationId
+
+syncLogs/
+  syncId
+```
+
+You may improve this structure when necessary, but maintain clear relationships and avoid unnecessary data duplication.
+
+### Important Data Relationships
+
+**Project → Tasks**
+
+One project can contain multiple tasks.
+
+**Task → RACI**
+
+Each task can have responsibility assignments.
+
+**Task → Calendar**
+
+Tasks with deadlines or scheduled dates can be represented in the calendar.
+
+**Task → Gantt**
+
+The Gantt Chart must use the original Task records.
+
+**Task → KPI**
+
+Performance metrics must calculate from actual task records.
+
+**Routine → Completion History**
+
+Routine completion must maintain historical records.
+
+**Focus Session → Task**
+
+A focus session can optionally be associated with a task.
+
+**Transaction → Account Type**
+
+Each transaction must belong to either Personal or Business.
+
+Use stable unique IDs and timestamps.
+
+Include:
+- createdAt.
+- updatedAt.
+- createdBy.
+- updatedBy.
+- archivedAt where applicable.
+
+# 17. UNIFIED DATA SYNCHRONIZATION ENGINE
+
+Implement a centralized synchronization architecture.
+
+### Single Source of Truth
+
+Firestore is the primary database.
+
+The following modules must use shared records:
+
+- Dashboard.
+- Task Manager.
+- To-Do List.
+- Calendar.
+- Routine Planner.
+- RACI Matrix.
+- KPI & Metrics.
+- Gantt Chart.
+
+### Synchronization Rules
+
+| Action | Required Updates |
+|---|---|
+| Create Task | Kanban, To-Do, Gantt, Dashboard |
+| Change Deadline | Calendar, Gantt, Task Manager |
+| Change Status | Kanban, KPI, Dashboard |
+| Change Assigned Person | RACI, Gantt, Workload |
+| Complete Task | KPI, Dashboard, Kanban |
+| Update Routine | Routine Planner, Calendar |
+| Delete Task | All related views |
+| Update Project | Project Overview, Gantt |
+
+### Two Types of Updates
+
+**Unified Update**
+
+Changes made in one module automatically reflect in all related modules.
+
+**Individual Update**
+
+Users can edit information from any relevant module.
+
+All updates must modify the same central record instead of creating separate copies.
+
+### Synchronization Reliability
+
+Implement:
+
+- Real-Time Updates.
+- Conflict Management.
+- Duplicate Prevention.
+- Sync History.
+- Retry Mechanism.
+- Error Logging.
+- Undo / Recovery.
+- Soft Delete Synchronization.
+
+For external integrations, use stable external IDs and idempotent synchronization operations.
+
+Do not rely on frontend-only synchronization.
+
+Use Firebase Cloud Functions or an appropriate secure backend service for external API synchronization.
+
+Maintain a clear separation between internal database updates and external integration updates.
+
+# 18. GOOGLE INTEGRATION ARCHITECTURE
+
+### Google Sheets API
+
+Purpose:
+- Export Tasks.
+- Update Task Rows.
+- Synchronize Status.
+- Synchronize Deadlines.
+- Maintain Spreadsheet Mapping.
+
+### Google Calendar API
+
+Purpose:
+- Create Events.
+- Update Events.
+- Delete Events.
+- Import Calendar Events.
+- Synchronize Deadlines.
+
+### Integration Requirements
+
+- Secure OAuth 2.0.
+- User Consent.
+- Token Refresh.
+- Connection Status.
+- Disconnect Integration.
+- Sync History.
+- Error Recovery.
+
+Use minimum required permissions and secure token storage.
+
+Never expose refresh tokens or sensitive credentials in the browser.
+
+# 19. TECHNICAL STACK
+
+Use the following technology stack, adjusting only when a genuine technical requirement makes it necessary.
+
+| Technology | Purpose |
+|---|---|
+| Google AI Studio | AI-Assisted Development |
+| React | Frontend |
+| TypeScript | Type Safety |
+| Tailwind CSS | Styling |
+| Firebase Authentication | Authentication |
+| Cloud Firestore | Main Database |
+| Firebase Cloud Functions | Backend Automation |
+| Firebase Cloud Messaging | Notifications |
+| Google Sheets API | Spreadsheet Integration |
+| Google Calendar API | Calendar Integration |
+| Recharts | Data Visualization |
+| React Router | Navigation |
+| Firebase Hosting | Web Hosting |
+
+For drag-and-drop, Gantt charts, and other specialized interfaces, select stable and actively maintained libraries compatible with the project.
+
+Use a modular and maintainable folder structure.
+
+# 20. APPLICATION NAVIGATION
+
+Create the following sidebar structure:
+
+```text
+NEXUS OS
+PERSONAL COMMAND CENTER
+
+MAIN CONTROL
+  Dashboard
+  Task Manager
+  To-Do List
+  Calendar
+  Routine Planner
+
+PROJECT MANAGEMENT
+  Projects
+  RACI Matrix
+  KPI & Metrics
+  Gantt Chart
+
+PERSONAL DEVELOPMENT
+  Focus Mode
+  Vocabulary Learning
+
+FINANCIAL MANAGEMENT
+  Wallet & Expenses
+
+SYSTEM
+  Global Search
+  Notifications
+  Activity Log
+  Settings
+```
+
+Include:
+- Collapsible Sidebar.
+- Active Navigation Indicator.
+- User Profile.
+- Logout.
+- Connection Status.
+
+# 21. SETTINGS & CUSTOMIZATION
+
+Create a centralized Settings module.
+
+Include:
+
+**Profile Settings**
+- Name.
+- Email.
+- Profile Picture.
+
+**Appearance**
+- Dark Theme.
+- Accent Color.
+- Interface Preferences.
+
+**Notification Settings**
+- Enable / Disable Notifications.
+- Reminder Preferences.
+
+**Integration Settings**
+- Google Sheets Connection.
+- Google Calendar Connection.
+- Connection Status.
+- Disconnect Options.
+
+**Application Settings**
+- Default Currency.
+- Timezone.
+- Date Format.
+- Language Preferences.
+
+Use Asia/Dhaka as the initial timezone, with an option to change it.
+
+# 22. DEVELOPMENT ROADMAP — BUILD IN PHASES
+
+Do not attempt to develop the entire application in one step.
+
+Develop the application in the following phases.
+
+### Phase 1 — Foundation & UI
+
+- Project Setup.
+- Design System.
+- Responsive Layout.
+- Sidebar.
+- Navigation.
+- Dashboard UI.
+- Reusable Components.
+
+### Phase 2 — Authentication & Database
+
+- Firebase Setup.
+- Authentication.
+- Firestore Database.
+- Data Models.
+- Security Rules.
+- Protected Routes.
+
+### Phase 3 — Task Management
+
+- Task CRUD.
+- Kanban Board.
+- To-Do List.
+- Task Filters.
+- Task History.
+
+### Phase 4 — Calendar & Routine
+
+- Calendar Interface.
+- Google Calendar Integration.
+- Routine Management.
+- Recurring Routine.
+- Reminders.
+
+### Phase 5 — Project Management
+
+- Project CRUD.
+- Team Members.
+- RACI Matrix.
+- Gantt Chart.
+- Task Dependencies.
+
+### Phase 6 — KPI & Reports
+
+- Performance Metrics.
+- Dashboard Calculations.
+- Charts.
+- Weekly and Monthly Reports.
+
+### Phase 7 — Personal Development
+
+- Focus Mode.
+- Pomodoro Timer.
+- Vocabulary Learning.
+
+### Phase 8 — Financial Management
+
+- Income.
+- Expenses.
+- Budget.
+- Savings.
+- Financial Reports.
+
+### Phase 9 — Integration & Automation
+
+- Google Sheets API.
+- Google Calendar API.
+- Cloud Functions.
+- Unified Synchronization.
+- Notification System.
+
+### Phase 10 — Finalization
+
+- Global Search.
+- Activity Log.
+- Backup & Recovery.
+- Security Testing.
+- Performance Optimization.
+- Mobile Testing.
+- Deployment.
+
+# 23. STRICT DEVELOPMENT RULES
+
+Follow these rules throughout development.
+
+1. Build a real functional application, not just a visual prototype.
+2. Never use fake buttons or non-functional interactions.
+3. Do not use hardcoded sample data as permanent application data.
+4. Use Firestore for persistent data storage.
+5. Every form must have proper validation.
+6. Every CRUD operation must work.
+7. Use reusable React components.
+8. Maintain a clean folder structure.
+9. Keep frontend, backend, and integration logic separated.
+10. Use TypeScript properly.
+11. Implement loading, error, and empty states.
+12. Protect private user data.
+13. Avoid duplicate database records.
+14. Maintain consistent relationships across modules.
+15. Do not break previously completed modules when adding new features.
+16. Test all important operations after every development phase.
+17. Never claim an integration is complete until it has been configured and tested with real credentials.
+18. Use environment variables and secure configuration for sensitive information.
+19. Ensure that all pages work on desktop and mobile.
+20. Prioritize stability and data integrity over unnecessary animations or decorative features.
+
+# 24. TESTING & ACCEPTANCE CRITERIA
+
+Before declaring a phase complete, verify its functionality.
+
+### Essential Tests
+
+**Authentication**
+- Login works.
+- Logout works.
+- Protected pages are secure.
+
+**Task Management**
+- Task creation works.
+- Task editing works.
+- Status updates work.
+- Deletion and recovery work.
+
+**Data Synchronization**
+- One task appears consistently in all relevant modules.
+- Changing a deadline updates related views.
+- Changing task status updates KPI calculations.
+- Changing responsibility updates RACI and workload.
+
+**Calendar**
+- Event creation works.
+- Event updates work.
+- Duplicate events are prevented.
+
+**Financial Management**
+- Income and expenses calculate correctly.
+- Personal and Business records remain separate.
+
+**Responsive Design**
+- Desktop layout works.
+- Tablet layout works.
+- Mobile layout works.
+
+**Security**
+- Unauthorized users cannot access private data.
+- Firestore rules enforce the intended permissions.
+
+Create a clear testing checklist for every phase.
+
+# 25. FINAL PRODUCT EXPECTATION
+
+The final NEXUS OS application must feel like a professional personal operating system.
+
+It should combine the simplicity of a personal productivity application with the power of a professional project management platform.
+
+The user should be able to manage personal life, professional responsibilities, projects, learning, routines, and finances from one centralized interface.
+
+The application must be:
+
+- Visually Premium.
+- Easy to Use.
+- Fully Responsive.
+- Secure.
+- Data-Driven.
+- Modular.
+- Scalable.
+- Reliable.
+
+**Most Important Principle: All modules must work together through one centralized data architecture.**
+
+---
+
+# 26. FIRST EXECUTION INSTRUCTION — START NOW
+
+Now begin developing NEXUS OS.
+
+However, follow this exact workflow:
+
+**STEP 1 — Analyze**
+
+Analyze the complete project requirements and prepare the technical architecture.
+
+Identify dependencies, database relationships, required APIs, and potential technical challenges.
+
+**STEP 2 — Project Structure**
+
+Create the initial project structure, reusable components, routing system, and global design system.
+
+**STEP 3 — Phase 1 Development**
+
+Build the complete responsive Hacker Cyberpunk UI.
+
+Implement:
+- Login Page UI.
+- Main Dashboard.
+- Sidebar Navigation.
+- Top Navigation.
+- Dashboard Widgets.
+- Reusable Cards.
+- Tables.
+- Buttons.
+- Forms.
+- Modal Components.
+- Responsive Layout.
+
+At this stage, prioritize a complete and polished UI foundation.
+
+**STEP 4 — Verify**
+
+Run the application and check:
+- UI consistency.
+- Navigation.
+- Responsive behavior.
+- Component functionality.
+- Console errors.
+
+**STEP 5 — Report**
+
+After completing Phase 1, provide:
+
+1. What has been completed.
+2. Files and components created.
+3. What is working.
+4. What still needs development.
+5. Any technical limitations.
+6. The next development phase.
+
+**IMPORTANT:**
+
+Do not jump directly to all ten phases.
+
+Complete each phase properly before moving to the next one.
+
+Preserve existing code and functionality when extending the application.
+
+If a technical decision is required, choose the most reliable and maintainable solution rather than introducing unnecessary complexity.
+
+If external credentials or API authorization are required, build the integration structure safely and clearly identify what configuration is still needed.
+
+**Start with architecture analysis and Phase 1 implementation now.**

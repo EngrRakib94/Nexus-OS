@@ -1,0 +1,6 @@
+{
+  "name": "NEXUS OS",
+  "description": "Cyberpunk Personal & Project Management Command Center with Tasks, Kanban, RACI, Routines, KPI, Gantt, Focus, Vocabulary & Wallet",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
